@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Title from './Title';
 
 const Header = styled.header`
     position: fixed;
@@ -11,5 +12,9 @@ const Header = styled.header`
 `;
 
 export default function() {
-    return <Header></Header>;
+    return (
+        <Header>
+            <Title />
+        </Header>
+    );
 }
