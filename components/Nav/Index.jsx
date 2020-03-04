@@ -6,6 +6,8 @@ const Header = styled.header`
     position: fixed;
     width: 100vw;
     height: 64px;
+    padding: 0 8px;
+    box-sizing: border-box;
 
     display: flex;
 
@@ -24,8 +26,8 @@ export default function() {
         <Header>
             <Title />
             <Nav>
-                <Item text="Test1" href="test1" />
-                <Item text="Test2" href="test2" />
+                <Item text="Link 1" href="test1" />
+                <Item text="Link 2" href="test2" />
             </Nav>
         </Header>
     );
