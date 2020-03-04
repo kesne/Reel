@@ -2,13 +2,15 @@ import styled from 'styled-components';
 
 const H1 = styled.h1`
     margin: 0;
+    height: 100%;
     padding: 8px;
     box-sizing: border-box;
-    height: 100%;
 
     display: flex;
     align-items: center;
     justify-content: center;
+
+    font-family: 'Raleway', sans-serif;
 `;
 
 export default function Title() {

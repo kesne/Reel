@@ -11,6 +11,7 @@ const A = styled.a`
     justify-content: center;
 
     cursor: pointer;
+    font-family: 'Lato', sans-serif;
 
     &:hover {
         border-bottom: 3px solid black;

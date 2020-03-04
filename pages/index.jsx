@@ -13,6 +13,10 @@ export default () => (
     <div>
         <Head>
             <title>Reel - Home</title>
+            <link
+                href="https://fonts.googleapis.com/css?family=Lato|Raleway&display=swap"
+                rel="stylesheet"
+            />
         </Head>
         <GlobalStyle />
         <Nav />
