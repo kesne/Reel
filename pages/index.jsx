@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { createGlobalStyle } from 'styled-components';
+import Nav from '../components/Nav/';
 
 const GlobalStyle = createGlobalStyle`
     body {
@@ -14,5 +15,6 @@ export default () => (
             <title>Reel - Home</title>
         </Head>
         <GlobalStyle />
+        <Nav />
     </div>
 );
