@@ -20,6 +20,13 @@ const Button = styled.button`
 
     border-radius: 5px;
     font-size: 1rem;
+
+    &:focus,
+    &:hover {
+        color: #5291ff;
+        border-color: #5291ff;
+        outline: none;
+    }
 `;
 
 const Danger = styled.h3`
@@ -44,12 +51,14 @@ export default function Form() {
     return (
         <FormBlock onSubmit={handleSubmit}>
             <Input
+                required
                 type="text"
                 placeholder="Username"
                 value={username}
                 onChange={e => setUsername(e.target.value)}
             />
             <Input
+                required
                 type="password"
                 placeholder="Password"
                 value={password}
