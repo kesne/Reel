@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Form from './Form';
 
 const Wrapper = styled.div`
     width: 100vw;
@@ -12,8 +13,8 @@ const Wrapper = styled.div`
 `;
 
 const Block = styled.div`
-    width: 20rem;
-    height: 20rem;
+    width: 15rem;
+    height: 15rem;
 
     padding: 2rem;
 
@@ -34,6 +35,7 @@ export default function SignIn() {
         <Wrapper>
             <Block>
                 <H2>Sign In</H2>
+                <Form />
             </Block>
         </Wrapper>
     );
