@@ -30,7 +30,7 @@ const Heading = styled.h2`
     font-family: 'Lato', sans-serif;
 `;
 
-export default function SignIn() {
+export default function() {
     return (
         <Wrapper>
             <Block>

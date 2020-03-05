@@ -25,7 +25,7 @@ const Button = styled.button`
     &:hover {
         color: #5291ff;
         border-color: #5291ff;
-        outline: none;
+        outline: 0;
     }
 `;
 
@@ -54,6 +54,7 @@ export default function Form() {
                 required
                 type="text"
                 placeholder="Username"
+                aria-label="Username"
                 value={username}
                 onChange={e => setUsername(e.target.value)}
             />
@@ -61,6 +62,7 @@ export default function Form() {
                 required
                 type="password"
                 placeholder="Password"
+                aria-label="Password"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
             />
