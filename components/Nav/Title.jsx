@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styled from 'styled-components';
 
 const H1 = styled.h1`
@@ -11,12 +12,17 @@ const H1 = styled.h1`
     justify-content: center;
 
     font-family: 'Raleway', sans-serif;
+    cursor: pointer;
 `;
 
 export default function Title() {
     return (
         <div>
-            <H1>Reel</H1>
+            <Link href="/">
+                <H1>
+                    <a>Reel</a>
+                </H1>
+            </Link>
         </div>
     );
 }
