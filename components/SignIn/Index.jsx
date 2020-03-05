@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 `;
 
 const Block = styled.div`
-    width: 15rem;
+    width: 20rem;
     height: 15rem;
 
     padding: 2rem;
@@ -23,7 +23,7 @@ const Block = styled.div`
     border: 2px solid black;
 `;
 
-const H2 = styled.h2`
+const Heading = styled.h2`
     margin: 0;
 
     text-align: center;
@@ -34,7 +34,7 @@ export default function SignIn() {
     return (
         <Wrapper>
             <Block>
-                <H2>Sign In</H2>
+                <Heading>Sign In</Heading>
                 <Form />
             </Block>
         </Wrapper>
