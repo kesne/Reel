@@ -1,9 +1,10 @@
 import Layout from '../components/Layout';
+import Request from '../components/Request';
 
 export default function() {
     return (
         <Layout tabTitle="Reel - Home">
-            <h1>Request Page</h1>
+            <Request />
         </Layout>
     );
 }
