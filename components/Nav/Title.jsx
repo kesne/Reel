@@ -1,28 +1,24 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 
-const H1 = styled.h1`
-    margin: 0;
-    height: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-
+const Wrapper = styled.div`
     display: flex;
+    height: 100%;
     align-items: center;
-    justify-content: center;
+`;
 
+const A = styled.a`
+    font-size: 2rem;
+    color: black;
     font-family: 'Raleway', sans-serif;
-    cursor: pointer;
 `;
 
 export default function Title() {
     return (
-        <div>
-            <Link href="/">
-                <H1>
-                    <a>Reel</a>
-                </H1>
+        <Wrapper>
+            <Link href="/" passHref>
+                <A>Reel</A>
             </Link>
-        </div>
+        </Wrapper>
     );
 }
