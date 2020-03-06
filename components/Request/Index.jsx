@@ -31,6 +31,16 @@ export default function() {
                     <Option value="CONTENT">Content</Option>
                 </Select>
             </Form.Item>
+            <Form.Item
+                name="description"
+                label="Description"
+                rules={[{ required: true }]}
+            >
+                <Input.TextArea
+                    rows={4}
+                    placeholder="What do you need help with?"
+                />
+            </Form.Item>
             <Form.Item>
                 <Button type="primary" htmlType="submit">
                     Request
