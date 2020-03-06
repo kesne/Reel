@@ -9,24 +9,20 @@ const Wrapper = styled.div`
     align-items: center;
     justify-content: center;
 
-    background-color: #dddddd;
+    background-color: #fafafa;
 `;
 
 const Block = styled.div`
     width: 20rem;
-    height: 15rem;
-
     padding: 2rem;
 
     background-color: white;
-    border-radius: 5px;
-    border: 2px solid black;
+    border-radius: 2px;
+    border: 1px solid #8f8f8f;
 `;
 
 const Heading = styled.h2`
     margin: 0;
-
-    text-align: center;
     font-family: 'Lato', sans-serif;
 `;
 
