@@ -6,13 +6,6 @@ export default function() {
         console.log(values);
     };
 
-    const handleClassSelect = e => {
-        setClassID(e.target.value);
-        if (e.target.value === 'OTHER' && tutorType === 'CONTENT') {
-            setTutorType('');
-        }
-    };
-
     return (
         <Form onFinish={handleSubmit}>
             <h2>Request a Tutor</h2>
