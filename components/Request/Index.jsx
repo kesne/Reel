@@ -11,10 +11,11 @@ export default function() {
     const handleSubmit = e => {
         e.preventDefault();
         console.log(`
-            Input  |   Value
-        -----------+-----------
-        Class      | ${classID}
-        Tutor Type | ${tutorType}`);
+            Input   |   Value
+        ------------+-----------
+        Class       | ${classID}
+        Tutor Type  | ${tutorType}
+        Description | ${description}`);
     };
 
     const handleClassSelect = e => {
@@ -53,6 +54,14 @@ export default function() {
                 ]}
                 handleChange={e => setTutorType(e.target.value)}
             />
+
+            {classID !== '' && tutorType !== '' ? (
+                <textarea
+                    placeholder="What do you need help with?"
+                    value={description}
+                    onChange={e => setDescription(e.target.value)}
+                />
+            ) : null}
 
             <button type="submit">Submit</button>
         </form>
