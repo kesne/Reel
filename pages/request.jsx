@@ -3,7 +3,7 @@ import Request from '../components/Request';
 
 export default function() {
     return (
-        <Layout tabTitle="Reel - Home">
+        <Layout tabTitle="Reel - Request">
             <Request />
         </Layout>
     );
