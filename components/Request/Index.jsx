@@ -1,21 +1,9 @@
-import { useState } from 'react';
-import Select from './Select';
+import { Form, Input, Button, Select } from 'antd';
+const { Option } = Select;
 
 export default function() {
-    const [classID, setClassID] = useState('');
-    const [tutorType, setTutorType] = useState('');
-    const [classIfOther, setClassIfOther] = useState('');
-    const [description, setDescription] = useState('');
-    const [location, setLocation] = useState('');
-
-    const handleSubmit = e => {
-        e.preventDefault();
-        console.log(`
-            Input   |   Value
-        ------------+-----------
-        Class       | ${classID}
-        Tutor Type  | ${tutorType}
-        Description | ${description}`);
+    const handleSubmit = values => {
+        console.log(values);
     };
 
     const handleClassSelect = e => {
@@ -26,44 +14,35 @@ export default function() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <Form onFinish={handleSubmit}>
             <h2>Request a Tutor</h2>
-
-            <Select
-                currentVal={classID}
-                options={[
-                    { value: '', text: 'Please select a class' },
-                    { value: 'ENG150', text: 'Intro to Literary Analysis' },
-                    { value: 'MATH140', text: 'Calculus II' },
-                    { value: 'PHIL150', text: 'Symbolic Logic' },
-                    { value: 'OTHER', text: 'Other (Extracurricular)' },
-                ]}
-                handleChange={handleClassSelect}
-            />
-
-            <Select
-                currentVal={tutorType}
-                options={[
-                    { value: '', text: 'Please select a tutoring type' },
-                    { value: 'WRITING', text: 'Writing' },
-                    {
-                        value: 'CONTENT',
-                        text: 'Content',
-                        isDisabled: classID === 'OTHER',
-                    },
-                ]}
-                handleChange={e => setTutorType(e.target.value)}
-            />
-
-            {classID !== '' && tutorType !== '' ? (
-                <textarea
-                    placeholder="What do you need help with?"
-                    value={description}
-                    onChange={e => setDescription(e.target.value)}
-                />
-            ) : null}
-
-            <button type="submit">Submit</button>
-        </form>
+            <Form.Item
+                name="classID"
+                label="Class"
+                rules={[{ required: true }]}
+            >
+                <Select placeholder="Please select a class">
+                    <Option value="ENG150">Intro to Literary Analysis</Option>
+                    <Option value="PHIL150">Symbolic Logic</Option>
+                    <Option value="MATH140">Calculus II</Option>
+                    <Option value="OTHER">Other (extracurricular)</Option>
+                </Select>
+            </Form.Item>
+            <Form.Item
+                name="tutorType"
+                label="Tutoring Type"
+                rules={[{ required: true }]}
+            >
+                <Select placeholder="Please select a tutoring type">
+                    <Option value="WRITING">Writing</Option>
+                    <Option value="CONTENT">Content</Option>
+                </Select>
+            </Form.Item>
+            <Form.Item>
+                <Button type="primary" htmlType="submit">
+                    Request
+                </Button>
+            </Form.Item>
+        </Form>
     );
 }
