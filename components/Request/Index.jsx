@@ -1,9 +1,10 @@
 import { useState } from 'react';
+import Select from './Select';
 
 export default function() {
     const [classID, setClassID] = useState('');
     const [tutorType, setTutorType] = useState('');
-    const [classIfOther, setClassIfOther] = useState(null);
+    const [classIfOther, setClassIfOther] = useState('');
     const [description, setDescription] = useState('');
     const [location, setLocation] = useState('');
 
@@ -27,32 +28,32 @@ export default function() {
         <form onSubmit={handleSubmit}>
             <h2>Request a Tutor</h2>
 
-            <select value={classID} onChange={handleClassSelect} required>
-                <option value="" selected disabled>
-                    Please select a class
-                </option>
-                <option value="ENG150">Intro to Literary Analysis</option>
-                <option value="PHIL150">Symbolic Logic</option>
-                <option value="MATH140">Calculus II</option>
-                <option value="OTHER">OTHER (extracurricular)</option>
-            </select>
+            <Select
+                currentVal={classID}
+                options={[
+                    { value: '', text: 'Please select a class' },
+                    { value: 'ENG150', text: 'Intro to Literary Analysis' },
+                    { value: 'MATH140', text: 'Calculus II' },
+                    { value: 'PHIL150', text: 'Symbolic Logic' },
+                    { value: 'OTHER', text: 'Other (Extracurricular)' },
+                ]}
+                handleChange={handleClassSelect}
+            />
 
-            <select
-                value={tutorType}
-                onChange={e => setTutorType(e.target.value)}
-                required
-            >
-                <option value="" selected disabled>
-                    Please select a tutoring type
-                </option>
-                <option value="WRITING">Writing</option>
-                <option
-                    value="CONTENT"
-                    disabled={classID === 'OTHER' ? true : false}
-                >
-                    Content
-                </option>
-            </select>
+            <Select
+                currentVal={tutorType}
+                options={[
+                    { value: '', text: 'Please select a tutoring type' },
+                    { value: 'WRITING', text: 'Writing' },
+                    {
+                        value: 'CONTENT',
+                        text: 'Content',
+                        isDisabled: classID === 'OTHER',
+                    },
+                ]}
+                handleChange={e => setTutorType(e.target.value)}
+            />
+
             <button type="submit">Submit</button>
         </form>
     );
