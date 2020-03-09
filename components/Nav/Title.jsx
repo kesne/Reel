@@ -2,10 +2,10 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    display: flex;
-    height: 100%;
-    align-items: center;
     flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
 `;
 
 const A = styled.a`

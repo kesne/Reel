@@ -4,10 +4,8 @@ import styled from 'styled-components';
 const A = styled.a`
     height: 100%;
     padding: 8px 16px;
-    box-sizing: border-box;
     display: flex;
     align-items: center;
-    justify-content: center;
     font-family: 'Lato', sans-serif;
     color: white;
     text-decoration: none;
