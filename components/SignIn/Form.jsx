@@ -30,7 +30,7 @@ export default function SignInForm() {
             >
                 <Input.Password placeholder="Password" />
             </Form.Item>
-            <Form.Item>
+            <Form.Item style={{ marginBottom: 0 }}>
                 <Submit type="primary" htmlType="submit">
                     Sign In
                 </Submit>
