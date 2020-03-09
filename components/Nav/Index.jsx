@@ -7,17 +7,15 @@ const Header = styled.header`
     width: 100vw;
     height: 64px;
     padding: 0 8px;
-    box-sizing: border-box;
 
     display: flex;
 
-    background-color: gray;
+    background-color: #68427d;
+    border-bottom: 1px solid black;
+    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.5);
 `;
 const Nav = styled.nav`
     list-style-type: none;
-    margin: 0 0 0 auto;
-    padding: 0;
-
     display: flex;
 `;
 
