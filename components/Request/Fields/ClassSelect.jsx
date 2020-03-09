@@ -5,7 +5,7 @@ const { Option } = Select;
 export default function ClassSelect({ handleChange }) {
     return (
         <Item
-            name="classID"
+            name="requestClass"
             label="Class"
             rules={[{ required: true, message: 'Please select a class!' }]}
         >
