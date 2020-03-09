@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Form, Button } from 'antd';
 import styled from 'styled-components';
+import axios from 'axios';
 import Fields from './Fields/Index';
 
 const Group1 = styled.div`
@@ -25,9 +26,12 @@ export default function() {
     };
 
     const handleSubmit = values => {
-        setClassIsOther(false);
         form.resetFields();
-        console.log(values);
+        setClassIsOther(false);
+        axios
+            .post('/api/requests', values)
+            .then(response => console.log(response));
+        // console.log(values);
     };
 
     return (
