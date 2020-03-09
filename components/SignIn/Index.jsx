@@ -5,7 +5,7 @@ import Heading from '../SectionTitle';
 const Wrapper = styled.div`
     width: 100vw;
     height: calc(100vh - 64px);
-    padding-top: 5rem;
+    padding-top: 4rem;
 
     background-color: #fafafa;
 `;
