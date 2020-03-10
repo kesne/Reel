@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 import axios from 'axios';
-import { Cookies } from 'react-cookie';
 import Heading from '../SectionTitle';
 import Form from './Form';
 import Error from './Error';
+import * as cookies from '../../utils/cookies';
 
 const Wrapper = styled.div`
     width: 100vw;
@@ -24,7 +24,6 @@ const Content = styled.div`
     border: 1px solid #8f8f8f;
 `;
 
-const cookies = new Cookies();
 export default function() {
     const [errorStatus, setErrorStatus] = useState(null);
     const onSubmit = values => {
