@@ -5,8 +5,7 @@ const Submit = styled(Button)`
     float: right;
 `;
 
-export default function SignIn({ handleSubmit, retry }) {
-    console.log(retry);
+export default function SignIn({ handleSubmit }) {
     return (
         <Form onFinish={handleSubmit} layout="vertical" hideRequiredMark>
             <Form.Item
