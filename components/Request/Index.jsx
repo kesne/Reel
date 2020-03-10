@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import Heading from '../SectionTitle.jsx';
 import Form from './Form';
-import withAuth from '../withAuth';
 
 const Wrapper = styled.div`
     height: calc(100vh - 64px);
@@ -14,7 +13,7 @@ const Content = styled.div`
     margin: 0 auto;
 `;
 
-function Index() {
+export default function Index() {
     return (
         <Wrapper>
             <Content>
@@ -24,5 +23,3 @@ function Index() {
         </Wrapper>
     );
 }
-
-export default withAuth(Index);
