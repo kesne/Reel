@@ -1,16 +1,20 @@
 import User from '../../models/User';
+import jwt from 'jsonwebtoken';
 
 export default async (req, res) => {
     if (req.method === 'POST') {
         const { username, password } = req.body;
-        console.log(username, password);
+
         const user = await User.find({
             name: username,
             passwordHash: password,
         });
 
         if (user.length === 1) {
-            res.status(200).json(user);
+            const token = jwt.sign({ ...user[0] }, process.env.JWT_SECRET, {
+                expiresIn: 120,
+            });
+            res.status(200).json({ token: token });
         } else if (user.length > 1) {
             res.status(500).end();
             console.log('Multiple users returned from database!');
