@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 import axios from 'axios';
+import { Cookies } from 'react-cookie';
 import Heading from '../SectionTitle';
 import Form from './Form';
 import Error from './Error';
@@ -23,12 +24,15 @@ const Content = styled.div`
     border: 1px solid #8f8f8f;
 `;
 
+const cookies = new Cookies();
 export default function() {
     const [errorStatus, setErrorStatus] = useState(null);
     const onSubmit = values => {
         axios
             .post('/api/sessions', values)
-            .then(msg => console.log(msg))
+            .then(res => {
+                cookies.set('token', res.data.token);
+            })
             .catch(err => setErrorStatus(err.response.status));
     };
 
