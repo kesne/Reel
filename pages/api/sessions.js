@@ -6,7 +6,7 @@ export default async (req, res) => {
         const { username, password } = req.body;
 
         const user = await User.find({
-            name: username,
+            username,
             passwordHash: password,
         });
 
@@ -15,10 +15,10 @@ export default async (req, res) => {
                 { ...user[0]._doc },
                 process.env.JWT_SECRET,
                 {
-                    expiresIn: 120,
+                    expiresIn: '5m',
                 }
             );
-            res.status(200).json({ token: token });
+            res.status(200).json({ token });
         } else if (user.length > 1) {
             res.status(500).end();
             console.log('Multiple users returned from database!');
