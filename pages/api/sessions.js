@@ -11,9 +11,13 @@ export default async (req, res) => {
         });
 
         if (user.length === 1) {
-            const token = jwt.sign({ ...user[0] }, process.env.JWT_SECRET, {
-                expiresIn: 120,
-            });
+            const token = jwt.sign(
+                { ...user[0]._doc },
+                process.env.JWT_SECRET,
+                {
+                    expiresIn: 120,
+                }
+            );
             res.status(200).json({ token: token });
         } else if (user.length > 1) {
             res.status(500).end();
