@@ -1,21 +1,14 @@
 import { Form, Input, Button } from 'antd';
 import styled from 'styled-components';
-import axios from 'axios';
 
 const Submit = styled(Button)`
     float: right;
 `;
 
-export default function SignInForm() {
-    const handleSubmit = values => {
-        axios
-            .post('/api/sessions', values)
-            .then(msg => console.log(msg))
-            .catch(err => console.log(err));
-    };
-
+export default function SignIn({ handleSubmit, retry }) {
+    console.log(retry);
     return (
-        <Form onFinish={handleSubmit} layout="vertical">
+        <Form onFinish={handleSubmit} layout="vertical" hideRequiredMark>
             <Form.Item
                 name="username"
                 label="Username"

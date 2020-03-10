@@ -1,6 +1,9 @@
 import styled from 'styled-components';
-import Form from './Form';
+import { useState } from 'react';
+import axios from 'axios';
 import Heading from '../SectionTitle';
+import Form from './Form';
+import Error from './Error';
 
 const Wrapper = styled.div`
     width: 100vw;
@@ -21,11 +24,23 @@ const Content = styled.div`
 `;
 
 export default function() {
+    const [errorStatus, setErrorStatus] = useState(null);
+    const onSubmit = values => {
+        axios
+            .post('/api/sessions', values)
+            .then(msg => console.log(msg))
+            .catch(err => setErrorStatus(err.response.status));
+    };
+
     return (
         <Wrapper>
             <Content>
+                <Error
+                    errorCode={errorStatus}
+                    handleClose={e => setErrorStatus(null)}
+                />
                 <Heading text="Sign In" />
-                <Form />
+                <Form handleSubmit={onSubmit} />
             </Content>
         </Wrapper>
     );
