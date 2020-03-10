@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 import axios from 'axios';
+import Router from 'next/router';
 import Heading from '../SectionTitle';
 import Form from './Form';
 import Error from './Error';
@@ -31,6 +32,7 @@ export default function() {
             .post('/api/sessions', values)
             .then(res => {
                 cookies.set('token', res.data.token);
+                Router.push('/');
             })
             .catch(err => setErrorStatus(err.response.status));
     };
