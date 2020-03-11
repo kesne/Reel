@@ -1,16 +1,18 @@
 import Layout from '../components/Layout';
 import Request from '../components/Request';
 import Router from 'next/router';
-import * as cookies from '../utils/cookies';
 import verifyToken from '../utils/verifyToken';
+import withAuth from '../components/withAuth';
 
-export default function RequestPage() {
+function RequestPage() {
     return (
         <Layout tabTitle="Reel - Request">
             <Request />
         </Layout>
     );
 }
+
+export default withAuth(RequestPage);
 
 // RequestPage.getInitialProps = async ctx => {
 //     const rawToken = cookies.get(ctx)('token');

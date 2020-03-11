@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Title from './Title';
 import Item from './Item';
+import ClientOnly from '../ClientOnly';
 
 const Header = styled.header`
     position: fixed;
@@ -20,12 +21,23 @@ const Nav = styled.nav`
 `;
 
 export default function() {
+    const hasUser =
+        typeof window === 'undefined'
+            ? false
+            : !!localStorage.getItem('reel:token');
+
     return (
         <Header>
             <Title />
             <Nav>
                 <Item text="Request a Tutor" href="request" />
-                <Item text="Sign In" href="sign_in" />
+                <ClientOnly>
+                    {hasUser ? (
+                        <Item text="Logout" />
+                    ) : (
+                        <Item text="Sign In" href="sign_in" />
+                    )}
+                </ClientOnly>
             </Nav>
         </Header>
     );

@@ -29,7 +29,11 @@ export default function() {
         form.resetFields();
         setClassIsOther(false);
         axios
-            .post('/api/requests', values)
+            .post('/api/requests', values, {
+                headers: {
+                    Authentication: `Bearer ${localStorage.getItem('reel:token')}`
+                }
+            })
             .then(response => console.log(response));
         // console.log(values);
     };

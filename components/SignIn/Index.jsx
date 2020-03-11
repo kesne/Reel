@@ -5,7 +5,6 @@ import Router from 'next/router';
 import Heading from '../SectionTitle';
 import Form from './Form';
 import Error from './Error';
-import * as cookies from '../../utils/cookies';
 
 const Wrapper = styled.div`
     width: 100vw;
@@ -26,15 +25,20 @@ const Content = styled.div`
 `;
 
 export default function() {
+    const [loading, setLoading] = useState(false);
     const [errorStatus, setErrorStatus] = useState(null);
-    const onSubmit = values => {
-        axios
-            .post('/api/sessions', values)
-            .then(res => {
-                cookies.set('token', res.data.token);
-                Router.push('/');
-            })
-            .catch(err => setErrorStatus(err.response.status));
+    async function onSubmit(values) {
+        setLoading(true);
+        try {
+            const res = await axios.post('/api/sessions', values);
+            localStorage.setItem('reel:token', res.data.token);
+            const params = new URLSearchParams(location.search);
+            Router.push(params.get('from') || '/');
+        } catch(err) {
+            setErrorStatus(err.response.status)
+        } finally {
+            setLoading(false)
+        }
     };
 
     return (
@@ -45,7 +49,7 @@ export default function() {
                     handleClose={e => setErrorStatus(null)}
                 />
                 <Heading text="Sign In" />
-                <Form handleSubmit={onSubmit} />
+                <Form handleSubmit={onSubmit} loading={loading} />
             </Content>
         </Wrapper>
     );

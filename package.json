@@ -16,9 +16,9 @@
         "axios": "^0.19.2",
         "dotenv": "^8.2.0",
         "jsonwebtoken": "^8.5.1",
+        "micro-cookie": "^1.2.0",
         "mongoose": "^5.9.3",
-        "next": "^9.2.2",
-        "next-cookies": "^2.0.3",
+        "next": "^9.3.0",
         "react": "^16.13.0",
         "react-dom": "^16.13.0",
         "styled-components": "^5.0.1"

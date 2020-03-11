@@ -1,6 +1,16 @@
-import Request from '../../models/User';
+import Request from '../../models/Request';
+import verifyToken from '../../utils/verifyToken';
 
 export default async (req, res) => {
+    const [,token] = (req.headers.authentication || '').split('Bearer ');
+    const decodedToken = verifyToken(token);
+
+    if (!decodedToken) {
+        throw new Error('FUK U');
+    }
+
+    console.log(decodedToken.id);
+
     switch (req.method) {
         case 'GET': {
             const requests = await Request.find();
